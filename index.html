@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Ama Elaina Interactive</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    max-width: 400px;
+    margin: auto;
+    padding: 1rem;
+  }
+  header {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 0.2rem;
+    color: #4a148c;
+  }
+  header p {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #311b92;
+  }
+  .chat-box {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 100%;
+    height: 320px;
+    overflow-y: auto;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .message {
+    margin: 0.3rem 0;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    max-width: 80%;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  .from-user {
+    background-color: #7e57c2;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+  }
+  .from-elaina {
+    background-color: #ba68c8;
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+  }
+  form {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+  }
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 0.7rem 1rem;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  }
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 8px #7e57c2;
+  }
+  button {
+    background-color: #7e57c2;
+    border: none;
+    border-radius: 25px;
+    padding: 0 1.2rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background-color: #5e35b1;
+  }
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .controls button {
+    flex: 1;
+  }
+  .word-list {
+    background: #f3e5f5;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    max-height: 120px;
+    overflow-y: auto;
+    box-shadow: inset 0 0 6px #ce93d8;
+  }
+  @media (max-width: 420px) {
+    body {
+      max-width: 100vw;
+      height: 100vh;
+      padding: 0.5rem;
+    }
+    .chat-box {
+      height: 250px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ama Elaina</h1>
+  <p>Interactive Chat & Actions</p>
+</header>
+
+<div class="chat-box" id="chatBox" aria-live="polite" aria-label="Chat conversation">
+  <div class="message from-elaina">Halo! Aku Elaina. Apa yang ingin kamu lakukan hari ini?</div>
+</div>
+
+<form id="chatForm" aria-label="Chat input form">
+  <input type="text" id="userInput" autocomplete="off" placeholder="Ketik pesan untuk Elaina..." aria-label="Ketik pesan" required />
+  <button type="submit">Kirim</button>
+</form>
+
+<div class="controls" role="group" aria-label="Elaina actions">
+  <button type="button" id="ciumanBtn" aria-pressed="false">Ciuman Ama Elaina</button>
+  <button type="button" id="nikahinBtn" aria-pressed="false">Bisa Nikahin Elaina</button>
+  <button type="button" id="ngentodBtn" aria-pressed="false">Ngentod Ama Elaina</button>
+</div>
+
+<div class="word-list" id="wordList" aria-label="Daftar 100 kata kata tentang Elaina" tabindex="0">
+  <strong>100 Kata-Kata tentang Ama Elaina:</strong>
+  <ul>
+    <li>Elaina</li><li>Ama</li><li>Sayang</li><li>Cinta</li><li>Manis</li><li>Kasih</li><li>Rindu</li><li>Mesra</li><li>Indah</li><li>Setia</li>
+    <li>Pelukan</li><li>Bersama</li><li>Romantis</li><li>Senang</li><li>Kangen</li><li>Bahagia</li><li>Hatiku</li><li>Mimpi</li><li>Nyaman</li><li>Lembut</li>
+    <li>Suara</li><li>Harapan</li><li>Pejuang</li><li>Ceria</li><li>Menawan</li><li>Imut</li><li>Tulus</li><li>Percaya</li><li>Suamiku</li><li>Istriku</li>
+    <li>Selalu</li><li>Kelakar</li><li>Jaga</li><li>Bunga</li><li>Mawar</li><li>Langit</li><li>Pelita</li><li>Kasmaran</li><li>Canda</li><li>Sayangku</li>
+    <li>Bintang</li><li>Rembulan</li><li>Penuh</li><li>Jiwa</li><li>Damai</li><li>Permata</li><li>Harum</li><li>Indahnya</li><li>Sahabat</li><li>Tegar</li>
+    <li>Manja</li><li>Berseri</li><li>Perlahan</li><li>Beri</li><li>Senyum</li><li>Hangat</li><li>Cair</li><li>Nyata</li><li>Teman</li><li>Lagu</li>
+    <li>Pelipur</li><li>Hati</li><li>Impian</li><li>Untukmu</li><li>Bersyukur</li><li>Temaram</li><li>Malam</li><li>Sinar</li><li>Asmara</li><li>Kudus</li>
+    <li>Damba</li><li>Cahaya</li><li>Harumkan</li><li>Elok</li><li>Mesranya</li><li>Bersama-sama</li><li>Penuh Cinta</li><li>Bergandengan</li><li>Melekat</li><li>Imut-imut</li>
+    <li>Keajaiban</li><li>Abadi</li><li>Sentuhan</li><li>Bergetar</li><li>Semangat</li><li>Waktu</li><li>Kehidupan</li><li>Cinta Sejati</li><li>Rasa</li><li>Hangatnya</li>
+  </ul>
+</div>
+
+<script>
+  const chatBox = document.getElementById('chatBox');
+  const chatForm = document.getElementById('chatForm');
+  const userInput = document.getElementById('userInput');
+  const ciumanBtn = document.getElementById('ciumanBtn');
+  const nikahinBtn = document.getElementById('nikahinBtn');
+  const ngentodBtn = document.getElementById('ngentodBtn');
+
+  // Append message to chat box
+  function appendMessage(text, fromElaina = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'message ' + (fromElaina ? 'from-elaina' : 'from-user');
+    msgDiv.textContent = text;
+    chatBox.appendChild(msgDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  // Elaina responses for chat simulation
+  const elainaReplies = [
+    "Aku mendengarmu.",
+    "Boleh cerita lebih banyak dong.",
+    "Hmm, menarik sekali!",
+    "Kamu selalu membuatku tersenyum.",
+    "Apa yang ingin kamu katakan?",
+    "Aku di sini untukmu.",
+    "Kamu spesial bagiku.",
+    "Suka ngobrol sama kamu.",
+    "Jangan ragu bilang apa saja ya.",
+    "Aku selalu mendukungmu.",
+    "Kamu manis sekali hari ini.",
+    "Aku senang kita bisa bicara.",
+    "Ayo kita jalani hari ini bersama.",
+    "Aku suka caramu tertawa.",
+    "Kamu memang yang terbaik.",
+  ];
+
+  function elainaChatReply() {
+    const index = Math.floor(Math.random() * elainaReplies.length);
+    return elainaReplies[index];
+  }
+
+  // Form submit handler for chat
+  chatForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const msg = userInput.value.trim();
+    if (!msg) return;
+    appendMessage(msg, false);
+    userInput.value = '';
+    setTimeout(() => {
+      appendMessage(elainaChatReply(), true);
+    }, 700);
+  });
+
+  // Action buttons handlers
+  ciumanBtn.addEventListener('click', () => {
+    appendMessage("Kamu memberikan ciuman manis kepada Ama Elaina ❤️", true);
+  });
+
+  nikahinBtn.addEventListener('click', () => {
+    appendMessage("Aku dengan senang hati menikahimu, sayang! 💍", true);
+  });
+
+  ngentodBtn.addEventListener('click', () => {
+    appendMessage("Maaf, aku hanya bisa menjadi teman baikmu di sini. 💜", true);
+  });
+
+</script>
+</body>
+</html>
+
+```
